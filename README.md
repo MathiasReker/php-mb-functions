@@ -17,7 +17,7 @@ functions.
 
 | Version | PHP  | Documentation |
 |---------|------|---------------|
-| ^1.0    | ^8.0 | current       |
+| ^2.0    | ^8.0 | current       |
 
 ### Requirements
 
@@ -32,59 +32,78 @@ To acquire the package, utilize the composer package manager.
 composer require mathiasreker/php-mbstring-extension
 ```
 
-Once you have installed the mbstring extension, you can utilize its functions in your project like any other built-in
-functions.
-
 ### Documentation
 
-## ✅ mb_count_chars
+## ✅ levenshtein
 
-mb_count_chars — Return information about characters used in a string.
+Calculate the Levenshtein distance between two strings.
 
 ```php
-mb_count_chars(string $string, int $mode = 0, string $encoding = 'UTF-8'): array|string
+\MathiasReker\PhpMbFunctions\Mbstring::levenshtein(
+    string $s1,
+    string $s2,
+    int $cost_ins = 1,
+    int $cost_rep = 1,
+    int $cost_del = 1
+): int
+
 ```
 
-## ✅ mb_ucwords
+## ✅ ucwords
 
-mb_ucwords — Uppercase the first character of each word in a string.
+Uppercase the first character of each word in a string.
 
 ```php
-mb_ucwords(
+\MathiasReker\PhpMbFunctions\Mbstring::ucwords(
     string $string,
-    string $separators = " \t\r\n\f\v",
     string $encoding = 'UTF-8'
 ): string
 ```
 
-## ✅ mb_strrev
+## ✅ ucfirst
 
-mb_strrev — Reverse a string.
-
-```php
-mb_strrev(string $string, string $encoding = 'UTF-8'): string
-```
-
-## ✅ mb_str_pad
-
-mb_str_pad — Pad a string to a certain length with another string.
+Make the first character of a string uppercase.
 
 ```php
-mb_str_pad(
+\MathiasReker\PhpMbFunctions\Mbstring::ucfirst(
     string $string,
-    int $length,
-    string $pad_string = " ",
-    int $pad_type = STR_PAD_RIGHT, 
     string $encoding = 'UTF-8'
 ): string
 ```
 
-## ✅ mb_ucfirst
+## ✅ strrev
 
-mb_ucfirst — Make a string's first character uppercase.
+Reverse a string.
 
 ```php
-mb_ucfirst(string $string, string $encoding = 'UTF-8'): string
+\MathiasReker\PhpMbFunctions\Mbstring::strrev(
+    string $string,
+    string $encoding = 'UTF-8'
+): string
+
+```
+
+## ✅ count_chars
+
+Returns information about characters used in a string.
+
+```php
+\MathiasReker\PhpMbFunctions\Mbstring::count_chars(
+    string $string,
+    int $mode,
+    string $encoding = 'UTF-8'
+): array|string
+```
+
+## ✅ trim
+
+Multibyte-aware trim function.
+
+```php
+\MathiasReker\PhpMbFunctions\Mbstring::trim(
+    string $str,
+    string $charlist = " \t\n\r\0\x0B"
+): string
 ```
 
 ### Roadmap

@@ -24,5 +24,7 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::EARLY_RETURN,
         SetList::DEAD_CODE,
         SetList::TYPE_DECLARATION,
+        SetList::INSTANCEOF,
+        SetList::STRICT_BOOLEANS,
     ]);
 };

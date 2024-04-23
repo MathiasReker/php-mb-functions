@@ -10,29 +10,30 @@ declare(strict_types=1);
 
 namespace MathiasReker\PhpMbFunctions\Tests\Unit;
 
+use MathiasReker\PhpMbFunctions\Mbstring;
 use PHPUnit\Framework\TestCase;
 
 final class MbUcwordsTest extends TestCase
 {
     public function testUppercaseFirstCharacter(): void
     {
-        $this->assertEquals('Hello World', mb_ucwords('hello world'));
-        $this->assertEquals('Åäö', mb_ucwords('åäö'));
-        $this->assertEquals('Åäö Öäå', mb_ucwords('åäö öäå'));
+        $this->assertEquals('Hello World', Mbstring::ucwords('hello world'));
+        $this->assertEquals('Åäö', Mbstring::ucwords('åäö'));
+        $this->assertEquals('Åäö Öäå', Mbstring::ucwords('åäö öäå'));
     }
 
     public function testUppercaseAllWords(): void
     {
-        $this->assertEquals('The Quick Brown Fox', mb_ucwords('the quick brown fox'));
+        $this->assertEquals('The Quick Brown Fox', Mbstring::ucwords('the quick brown fox'));
     }
 
     public function testHandlesNonASCIICharacters(): void
     {
-        $this->assertEquals('Ça Va Bien', mb_ucwords('ça va bien'));
+        $this->assertEquals('Ça Va Bien', Mbstring::ucwords('ça va bien'));
     }
 
     public function testEmptyString(): void
     {
-        $this->assertEquals('', mb_ucwords(''));
+        $this->assertEquals('', Mbstring::ucwords(''));
     }
 }

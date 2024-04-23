@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace MathiasReker\PhpMbFunctions\Tests\Unit;
 
+use MathiasReker\PhpMbFunctions\Mbstring;
 use PHPUnit\Framework\TestCase;
 
 final class MbCountCharsTest extends TestCase
@@ -29,7 +30,7 @@ final class MbCountCharsTest extends TestCase
             'd' => 1,
             '!' => 1,
         ];
-        $result = mb_count_chars($string, 0);
+        $result = Mbstring::count_chars($string, 0);
         $this->assertEquals($expected, $result);
     }
 
@@ -48,7 +49,7 @@ final class MbCountCharsTest extends TestCase
             'd' => 1,
             '!' => 1,
         ];
-        $result = mb_count_chars($string, 1);
+        $result = Mbstring::count_chars($string, 1);
         $this->assertEquals($expected, $result);
     }
 
@@ -56,7 +57,7 @@ final class MbCountCharsTest extends TestCase
     {
         $string = 'Hello, world!';
         $expected = [];
-        $result = mb_count_chars($string, 2);
+        $result = Mbstring::count_chars($string, 2);
         $this->assertEquals($expected, $result);
     }
 
@@ -64,7 +65,7 @@ final class MbCountCharsTest extends TestCase
     {
         $string = 'Hello, world!';
         $expected = 'Helo, wrd!';
-        $result = mb_count_chars($string, 3);
+        $result = Mbstring::count_chars($string, 3);
         $this->assertEquals($expected, $result);
     }
 
@@ -72,7 +73,7 @@ final class MbCountCharsTest extends TestCase
     {
         $string = 'Hello, world!';
         $expected = '';
-        $result = mb_count_chars($string, 4);
+        $result = Mbstring::count_chars($string, 4);
         $this->assertEquals($expected, $result);
     }
 
@@ -84,6 +85,6 @@ final class MbCountCharsTest extends TestCase
         $mode = 5;
         $encoding = 'UTF-8';
 
-        mb_count_chars($string, $mode, $encoding);
+        Mbstring::count_chars($string, $mode, $encoding);
     }
 }
